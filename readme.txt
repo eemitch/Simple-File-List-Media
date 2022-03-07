@@ -12,5 +12,8 @@ Adds basic media playback to Simple File List.
 
 == Changelog ==
 
+= 1.0.2 =
+* Made the Play button play the audio in the player rather than opening the file in a new tab.
+
 = 1.0.1 =
 * Initial Plugin Build
