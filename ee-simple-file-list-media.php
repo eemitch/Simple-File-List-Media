@@ -8,7 +8,7 @@ Plugin Name: Simple File List Media
 Plugin URI: http://simplefilelist.com
 Description: Adds basic audio playback to Simple File List
 Author: Mitchell Bennis
-Version: 1.0.1
+Version: 1.1.1
 Author URI: http://simplefilelist.com
 License: EULA
  * Intellectual Property rights, and copyright, reserved by Mitchell Bennis as allowed by law include,
@@ -24,7 +24,7 @@ Domain Path: /languages
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // SFL Versions
-define('eeSFLM_Version', '1.0.1'); // Plugin version
+define('eeSFLM_Version', '1.1.1'); // Plugin version
 // define('eeSFLM_DB_Version', '0');
 
 

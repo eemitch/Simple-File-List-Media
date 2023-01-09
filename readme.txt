@@ -12,6 +12,10 @@ Adds basic media playback to Simple File List.
 
 == Changelog ==
 
+= 1.1.1 =
+* Updates required for SFL 6, adding support for the new Tiles and Flex list styles.
+* Bug fix where the open action for non-media files failed. 
+
 = 1.0.2 =
 * Made the Play button play the audio in the player rather than opening the file in a new tab.
 
