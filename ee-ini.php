@@ -12,4 +12,6 @@ $eeSFLM = new eeSFLM_class(); // Initiate the Class
 
 $eeSFLM->eeSFLM_InstallCheck();
 
+eeSFLM_PassToJS();
+
 ?>

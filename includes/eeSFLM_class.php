@@ -10,10 +10,7 @@ class eeSFLM_class {
 	// Default Settings							
 	public $eeSFLM_SettingsDefault = array(
 		'AudioEnabled' => 'YES'
-		,'AudioHeight' => 20
-		,'AudioColor' => '#000000'
-		,'AudioTypes' => 'mp3'
-		,'VideoTypes' => 'mp4'
+		,'AudioHeight' => 0
 	);
 	
 	
@@ -71,7 +68,6 @@ class eeSFLM_class {
 		
 		$eeTextInputs = array(
 			'AudioHeight'
-			,'AudioColor'
 		);
 		
 		if(function_exists('eeSFL_BASE_ProcessTextInput')) {
@@ -82,43 +78,6 @@ class eeSFLM_class {
 			foreach( $eeTextInputs as $eeTerm ) {
 				$eeObject->eeListSettings[$eeTerm] = eeSFL_ProcessTextInput($eeTerm);
 			}
-		}
-		
-		
-		
-		// Audio Types
-		if(isset($_POST['eeAudioTypes'])) { // Strip all but what we need for the comma list of file extensions
-			
-			$eeFileFormatsIN = preg_replace("/[^a-z0-9,]/i", "", $_POST['eeAudioTypes']);
-			$eeFileFormatsIN = explode(',', $eeFileFormatsIN);
-			$eeFileFormatsOK = '';
-			foreach( $eeFileFormatsIN as $eeKey => $eeValue){
-				$eeValue = trim($eeValue);
-				if(in_array($eeValue, $eeObject->eeForbiddenTypes)) {
-					$eeObject->eeLog[$eeGo]['errors'][] = __('This audio file type is not allowed', 'ee-simple-file-list-media') . ': ' . $eeValue;
-				} elseif($eeValue) {
-					$eeFileFormatsOK .= $eeValue . ',';
-				}
-			}
-			$eeObject->eeListSettings['AudioTypes'] = substr($eeFileFormatsOK, 0, -1);
-		}
-		
-		
-		// Video Types
-		if(isset($_POST['eeVideoTypes'])) { // Strip all but what we need for the comma list of file extensions
-			
-			$eeFileFormatsIN = preg_replace("/[^a-z0-9,]/i", "", $_POST['eeVideoTypes']);
-			$eeFileFormatsIN = explode(',', $eeFileFormatsIN);
-			$eeFileFormatsOK = '';
-			foreach( $eeFileFormatsIN as $eeKey => $eeValue){
-				$eeValue = trim($eeValue);
-				if(in_array($eeValue, $eeObject->eeForbiddenTypes)) {
-					$eeObject->eeLog[$eeGo]['errors'][] = __('This video file type is not allowed', 'ee-simple-file-list-media') . ': ' . $eeValue;
-				} elseif($eeValue) {
-					$eeFileFormatsOK .= $eeValue . ',';
-				}
-			}
-			$eeObject->eeListSettings['VideoTypes'] = substr($eeFileFormatsOK, 0, -1);
 		}
 		
 		// echo '<pre>'; print_r($_POST); echo '</pre>';
@@ -169,48 +128,8 @@ class eeSFLM_class {
 			<input type="number" name="eeAudioHeight" id="eeAudioHeight" value="' . $eeObject->eeListSettings['AudioHeight'] . '" />
 			</div>
 			
-			<div class="eeNote">' . __('Define the height of the audio player in pixels.', 'ee-simple-file-list-media') . '</div>
+			<div class="eeNote">' . __('Define the height of the audio player in pixels.', 'ee-simple-file-list-media') . ' ' . __('Set to zero to ignore this value.', 'ee-simple-file-list-media') . '</div>
 			
-		</fieldset>
-			
-		<fieldset>
-		
-			<legend>' . __('Choose the Audio Player Color', 'ee-simple-file-list-media') . '</legend>	
-			
-			<div><label for="eeAudioHeight">' . __('Color', 'ee-simple-file-list-media') . ':</label>
-			<input type="color" name="eeAudioColor" id="eeAudioColor" value="' . $eeObject->eeListSettings['AudioColor'] . '" />
-			</div>
-			
-			<div class="eeNote">' . __('Define the color of the audio player.', 'ee-simple-file-list-media') . '</div>
-	
-		</fieldset>
-			
-		<fieldset>
-		
-			<legend>' . __('Audio File Types', 'ee-simple-file-list-media') . '</legend>
-			
-			<div>
-			<label for="eeAudioTypes">' . __('Types', 'ee-simple-file-list-media') . ':</label>
-			<input type="text" name="eeAudioTypes" id="eeAudioTypes" value="' . $eeObject->eeListSettings['AudioTypes'] . '" />
-			</div>
-			
-			<div class="eeNote">' . __('Choose which types of audio files will display the player.', 'ee-simple-file-list-media') . '</div>
-			
-			
-			
-		</fieldset>
-			
-		<fieldset>	
-		
-			<legend>' . __('Video File Types', 'ee-simple-file-list-media') . '</legend>
-			
-			<div>
-			<label for="eeVideoTypes">' . __('Types', 'ee-simple-file-list-media') . ':</label>
-			<input type="text" name="eeVideoTypes" id="eeVideoTypes" value="' . $eeObject->eeListSettings['VideoTypes'] . '" />
-			</div>
-			
-			<div class="eeNote">' . __('Choose which types of video files will display the player.', 'ee-simple-file-list-media') . '</div>				
-				
 		</fieldset>
 		
 		</div>';

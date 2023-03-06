@@ -25,11 +25,26 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // SFL Versions
 define('eeSFLM_Version', '2.0.1'); // Plugin version
-// define('eeSFLM_DB_Version', '0');
-
 
 // Text Strings to Pass to JavaScript
-$eeSFLM_VarsForJS = array('Browser is Not Compatible');
+$eeSFL_BASE_VarsForJS = array(); // Strings for JS
+
+function eeSFLM_PassToJS() {
+	
+	global $eeSFL_BASE, $eeSFLM, $eeSFLM_VarsForJS;
+	
+	// Free or Pro ?
+	if(is_object($eeSFL_BASE)) { $eeObject = $eeSFL_BASE; } 
+		else { global $eeSFL; $eeObject = $eeSFL; }
+		
+	$eeSFLM_VarsForJS = array(
+		'eePlayLabel' => __('Play', 'ee-simple-file-list-media'),
+		'eeBrowserWarning' => __('Browser is Not Compatible', 'ee-simple-file-list-media'),
+		'eeAudioEnabled' => $eeObject->eeListSettings['AudioEnabled'],
+		'eeAudioHeight' => $eeObject->eeListSettings['AudioHeight']
+	);
+}
+
 
 // Language Enabler
 function eeSFLM_Textdomain() {
@@ -43,9 +58,13 @@ eeSFLM_Textdomain(); // Language Setup
 // Front-side <head>
 function eeSFLM_Enqueue() {
 	
-	global $eeSFLM, $eeSFLM_VarsForJS;
+	global $eeSFL_BASE, $eeSFLM, $eeSFLM_VarsForJS;
 	
-	if($eeSFLM) {
+	// Free or Pro ?
+	if(is_object($eeSFL_BASE)) { $eeObject = $eeSFL_BASE; } 
+		else { global $eeSFL; $eeObject = $eeSFL; }
+	
+	if($eeObject) {
 		
 		// CSS
 	    wp_register_style( 'ee-simple-file-list-media-css', plugin_dir_url(__FILE__) . 'css/ee-media-styles.css', '', eeSFLM_Version);
@@ -56,14 +75,19 @@ function eeSFLM_Enqueue() {
 		
 		// Register Scripts
 		wp_register_script( 'ee-simple-file-list-media-head-js', plugin_dir_url(__FILE__) . 'js/ee-media-scripts-head.js' );
-		wp_register_script( 'ee-simple-file-list-media-footer-js', plugin_dir_url(__FILE__) . 'js/ee-media-scripts-footer.js' );	
+		wp_register_script( 'ee-simple-file-list-media-footer-js', plugin_dir_url(__FILE__) . 'js/ee-media-scripts-footer.js' );
+		wp_register_script( 'ee-simple-file-list-media-audio-inline-player-js', plugin_dir_url(__FILE__) . 'js/ee-audio-inline-player.js' );	
 		
 		// Enqueue
 		wp_enqueue_script('ee-simple-file-list-media-head-js', plugin_dir_url(__FILE__) . 'js/ee-media-scripts-head.js', $deps, eeSFLM_Version, FALSE); // Head
 		wp_enqueue_script('ee-simple-file-list-media-footer-js', plugin_dir_url(__FILE__) . 'js/ee-media-scripts-footer.js', $deps, eeSFLM_Version, TRUE); // Footer
 		
+		if($eeObject->eeListSettings['AudioEnabled'] == 'YES') {
+			wp_enqueue_script('ee-simple-file-list-media-audio-inline-player-js', plugin_dir_url(__FILE__) . 'js/ee-audio-inline-player.js', $deps, eeSFLM_Version, TRUE); // Footer
+		}
+		
 		// Pass variables
-		wp_localize_script('ee-simple-file-list-media-head-js', 'eeSFLM_Head_Variables', $eeSFLM_VarsForJS);
+		wp_localize_script('ee-simple-file-list-media-head-js', 'eeSFLM_Vars', $eeSFLM_VarsForJS);
 	
 	}
 
@@ -76,7 +100,11 @@ add_action( 'wp_enqueue_scripts', 'eeSFLM_Enqueue' );
 // Admin <head>
 function eeSFLM_AdminHead($eeHook) {
 
-	global $eeSFLM_VarsForJS;
+	global $eeSFL_BASE, $eeSFLM_VarsForJS;
+	
+	// Free or Pro ?
+	if(is_object($eeSFL_BASE)) { $eeObject = $eeSFL_BASE; } 
+		else { global $eeSFL; $eeObject = $eeSFL; }
 	
 	$deps = array('jquery');
 	
@@ -92,10 +120,13 @@ function eeSFLM_AdminHead($eeHook) {
 		// Javascript
         wp_enqueue_script('ee-simple-file-list-media-head-js', plugin_dir_url(__FILE__) . 'js/ee-media-scripts-head.js',$deps, eeSFLM_Version, TRUE);
         wp_enqueue_script('ee-simple-file-list-media-footer-js', plugin_dir_url(__FILE__) . 'js/ee-media-scripts-footer.js',$deps, eeSFLM_Version, TRUE);
+        
+        if($eeObject->eeListSettings['AudioEnabled'] == 'YES') {
+			// wp_enqueue_script('ee-simple-file-list-media-audio-inline-player-js', plugin_dir_url(__FILE__) . 'js/ee-audio-inline-player.js', $deps, eeSFLM_Version, TRUE); // Footer
+		}
 		
 		// Pass variables
-		wp_localize_script('ee-simple-file-list-media-head-js', 'eeSFLM_Head_Variables', $eeSFLM_VarsForJS );
-		wp_localize_script( 'ee-simple-file-list-media-footer-js', 'eeSFLM_Footer_Variables', $eeSFLM_VarsForJS );
+		wp_localize_script( 'ee-simple-file-list-media-footer-js', 'eeSFLM_Vars', $eeSFLM_VarsForJS );
     }  
 }
 add_action('admin_enqueue_scripts', 'eeSFLM_AdminHead');
