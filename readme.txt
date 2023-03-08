@@ -17,10 +17,10 @@ Simple File List is a free plugin that is great for when you need to provide a l
 
 ## Features
 
-* Add audio and video players to Simple File List
+* Add audio and video players to Simple File List.
 * Display an inline audio player below the file name to allow your users to play audio files right on the list.
 * Video files open in an overlay, rather than directly within a new tab.
-* The audio player can be enabled/disabled in the settings,
+* The audio player can be enabled/disabled in the settings.
 * The height of the audio player can be defined in the settings.
 
 This plugin requires that you have Simple File List installed...
@@ -62,7 +62,7 @@ A: Yes. If you upgrade this plugin will work with Pro too.
 == Changelog ==
 
 = 2.0.1 =
-* Added an HTML5 video player.
+* Added an HTML5 video player, which opens in an page overlay.
 * Now passing the file type MIME to the players and letting the browser play whatever it can.
 * Now all file open actins begin the playback, including thumb clicks and file name clicks.
 * Added settings to enable or disable the inline audio player, plus define its height.

@@ -4,7 +4,7 @@
  * @package Element Engage - Simple File List Media
  */
 /*
-Plugin Name: Simple File List
+Plugin Name: Simple File List Media
 Plugin URI: http://simplefilelist.com
 Description: Adds audios and video media players to Simple File List
 Author: Mitchell Bennis
