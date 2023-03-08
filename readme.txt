@@ -63,9 +63,11 @@ A: Yes. If you upgrade this plugin will work with Pro too.
 
 = 2.0.1 =
 * Added an HTML5 video player.
-* Added support for more audio formats.
+* Now passing the file type MIME to the players and letting the browser play whatever it can.
+* Now all file open actins begin the playback, including thumb clicks and file name clicks.
 * Added settings to enable or disable the inline audio player, plus define its height.
-* Rewrote and improved the core with visions of many new things to come.
+* Rewrote and improved the core.
+* Added language translations to match SFL.
 
 = 1.1.1 =
 * Updates required for SFL 6, adding support for the new Tiles and Flex list styles.
