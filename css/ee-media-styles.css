@@ -3,11 +3,11 @@
 
 .eeSFL_AudioPlayerWrap {
 	width: 98%;
-	margin: .25em 0;
+	margin: .5em 0;
 }
 
 .eeSFL_AudioPlayer {
-	height: 2em;
+	height: auto;
 	width: 100%;
 }
 
@@ -22,17 +22,17 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 }
 .eeSFLM_Modal .eeSFLM_ModalBody {
 	position: fixed;
 	z-index: 100;
-	top: 1em;
-	bottom: 1em;
-	right: 1%;
-	left: 1%;
+	top: 2em;
+	bottom: 2em;
+	right: 2%;
+	left: 2%;
 	padding: 2em;
-	background-color: #000;
+/* 	background-color: rgba(255, 255, 255, 0.8); */
 }
 .eeSFLM_Modal .eeSFLM_ModalClose {
 	position: absolute;
@@ -43,4 +43,12 @@
 	height: 1.5em;
 	width: 1.5em;
 	line-height: 0;
+}
+#eeSFLM_Video {
+	text-align: center;
+}
+#eeSFLM_Video video {
+	display: inline-block;
+	margin-left: 0 auto;
+	max-width: 80%;
 }

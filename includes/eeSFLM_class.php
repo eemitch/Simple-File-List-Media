@@ -10,7 +10,7 @@ class eeSFLM_class {
 	// Default Settings							
 	public $eeSFLM_SettingsDefault = array(
 		'AudioEnabled' => 'YES'
-		,'AudioHeight' => 0
+		,'AudioHeight' => 20
 	);
 	
 	
@@ -107,7 +107,7 @@ class eeSFLM_class {
 			<legend>' . __('Enable In-Line Audio Player', 'ee-simple-file-list-media') . '</legend>
 			
 			<div>
-			<label for="eeAudioEnabled">' . __('Enable', 'ee-simple-file-list-media') . ':</label>
+			<label for="eeAudioEnabled">' . __('Enabled', 'ee-simple-file-list-media') . ':</label>
 			<input type="checkbox" name="eeAudioEnabled" id="eeAudioEnabled" value="YES" ';
 			
 			if($eeObject->eeListSettings['AudioEnabled'] == 'YES') { $eeOutput .= 'checked="checked"'; }
@@ -115,7 +115,7 @@ class eeSFLM_class {
 			$eeOutput .= ' />
 			</div>
 			
-			<div class="eeNote">' . __('Show the HTML5 Audio Player next to the file name', 'ee-simple-file-list-media') . '</div>
+			<div class="eeNote">' . __('Show the audio player beneath the file name', 'ee-simple-file-list-media') . '</div>
 			
 			
 		</fieldset>
