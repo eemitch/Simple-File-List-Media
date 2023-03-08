@@ -1,7 +1,7 @@
 // Upon page load completion...
 jQuery(document).ready(function($) {
 	
-	console.log(eeSFLM_Vars);
+	// console.log(eeSFLM_Vars);
 	
 	// Look for Media Files and Add Player
 	jQuery( '.eeSFL_Item' ).each(function( index ) {
@@ -25,7 +25,7 @@ jQuery(document).ready(function($) {
 			// Setup for Playback
 			if(eeSFLM_Player == 'AUDIO' || eeSFLM_Player == 'VIDEO') {
 			
-				console.log(eeSFLM_FileMIME + ' Media File Found: ' + eeSFLM_FileName);
+				// console.log(eeSFLM_FileMIME + ' Media File Found: ' + eeSFLM_FileName);
 				
 				// Change "Open" to "Play"
 				jQuery('#' + eeSFLM_ThisID + ' a.eeSFL_FileOpen').text(eeSFLM_Vars.eePlayLabel); 
