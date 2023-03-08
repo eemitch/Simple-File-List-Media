@@ -4,19 +4,13 @@
  * @package Element Engage - Simple File List Media
  */
 /*
-Plugin Name: Simple File List Media
+Plugin Name: Simple File List
 Plugin URI: http://simplefilelist.com
-Description: Adds basic audio playback to Simple File List
+Description: Adds audios and video media players to Simple File List
 Author: Mitchell Bennis
 Version: 2.0.1
 Author URI: http://simplefilelist.com
-License: EULA
- * Intellectual Property rights, and copyright, reserved by Mitchell Bennis as allowed by law include,
- * but are not limited to, the working concept, function, and behavior of this plugin,
- * the logical code structure and expression as written.
- *
- * @category    Plugin
- * @copyright   Copyright (c) Mitchell Bennis
+License: GPLv2 or later
 Text Domain: ee-simple-file-list-media
 Domain Path: /languages
 */
