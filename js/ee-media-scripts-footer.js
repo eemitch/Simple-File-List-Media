@@ -128,11 +128,17 @@ jQuery(document).ready(function($) {
 			
 			eeSFLM_VideoPlayer += '<button class="eeSFLM_ModalClose">&times;</button>';
 			
-			eeSFLM_VideoPlayer += '<video autoplay controls><source src="' + eeSFLM_ThisURL + '" type="' + eeSFLM_FileMIME + '">' + eeSFLM_Vars.eeBrowserWarning + '</video>';
+			eeSFLM_VideoPlayer += '<video id="eeSFLM_VideoPlayer" autoplay controls><source src="' + eeSFLM_ThisURL + '" type="' + eeSFLM_FileMIME + '">' + eeSFLM_Vars.eeBrowserWarning + '</video>';
 			
 			eeSFLM_VideoPlayer += '</div></div>';
 			
-			eeSFLM_VideoPlayer += '<script>' + "jQuery('.eeSFLM_ModalClose').on('click', function() { jQuery('#eeSFLM_Video').remove(); }); jQuery('.eeSFLM_Modal').on('click', function() { jQuery('#eeSFLM_Video').remove(); }); " + '</script>';
+			eeSFLM_VideoPlayer += '<script>';
+			eeSFLM_VideoPlayer += "jQuery('.eeSFLM_ModalClose').on('click', function() {  jQuery('#eeSFLM_Video').trigger('pause');jQuery('#eeSFLM_Video').remove(); });";
+			eeSFLM_VideoPlayer += "jQuery('.eeSFLM_Modal').on('click', function() { jQuery('#eeSFLM_Video').trigger('pause'); jQuery('#eeSFLM_Video').remove(); });";
+			
+			eeSFLM_VideoPlayer += '';
+			eeSFLM_VideoPlayer += '</script>';
+			
 			
 			jQuery('.eeSFL').append(eeSFLM_VideoPlayer);
 	
