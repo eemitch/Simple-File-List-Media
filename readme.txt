@@ -64,7 +64,7 @@ A: Yes. If you upgrade this plugin will work with Pro too.
 = 2.0.1 =
 * Added an HTML5 video player, which opens in an page overlay.
 * Now passing the file type MIME to the players and letting the browser play whatever it can.
-* Now all file open actins begin the playback, including thumb clicks and file name clicks.
+* Now all file open actions begin the playback, including thumb clicks and file name clicks.
 * Added settings to enable or disable the inline audio player, plus define its height.
 * Rewrote and improved the core.
 * Added language translations to match SFL.
