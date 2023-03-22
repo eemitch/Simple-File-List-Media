@@ -20,17 +20,20 @@ class eeSFLM_class {
 		
 		// Free or Pro ?
 		if(is_object($eeSFL_BASE)) { $eeObject = $eeSFL_BASE; $eeID = 1; } 
-			else { global $eeSFL; $eeObject = $eeSFL; $eeID = $eeObject->eeListID; }
+			else { global $eeSFL; $eeID = $eeSFL->eeListID; $eeObject = $eeSFL; }
 		
 		if(!isset($eeObject->eeListSettings['AudioEnable'])) {
 			
-			$eeListSettings = array_merge($eeObject->eeListSettings, $this->eeSFLM_SettingsDefault);
-			update_option('eeSFL_Settings_' . $eeID, $eeListSettings);
-			
-			if(is_object($eeSFL_BASE)) {
-				$eeSFL_BASE->eeListSettings = $eeListSettings;
-			} else {
-				$eeSFL->eeListSettings = $eeListSettings;
+			if(!empty($eeObject->eeListSettings) AND $eeID) {
+		
+				$eeListSettings = array_merge($eeObject->eeListSettings, $this->eeSFLM_SettingsDefault);
+				update_option('eeSFL_Settings_' . $eeID, $eeListSettings);
+				
+				if(is_object($eeSFL_BASE)) {
+					$eeSFL_BASE->eeListSettings = $eeListSettings;
+				} else {
+					$eeSFL->eeListSettings = $eeListSettings;
+				}
 			}
 		}
 	}
