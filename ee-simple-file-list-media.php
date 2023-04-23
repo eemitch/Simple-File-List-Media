@@ -5,8 +5,8 @@
  */
 /*
 Plugin Name: Simple File List Media
-Plugin URI: http://simplefilelist.com
-Description: Adds audios and video media players to Simple File List
+Plugin URI: https://simplefilelist.com/add-media-player/
+Description: Adds audio and video media players to Simple File List
 Author: Mitchell Bennis
 Version: 2.0.1
 Author URI: http://simplefilelist.com
