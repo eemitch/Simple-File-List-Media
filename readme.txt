@@ -5,7 +5,7 @@ Tags: file list, file sharing, audio player, video player
 Requires at least: 5.0
 Requires PHP: 7.4
 Tested up to: 6.2
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,9 @@ A: Yes. If you upgrade this plugin will work with Pro too.
 3. Back-End Settings.
 
 == Changelog ==
+
+= 2.0.2 =
+* Bug fix where back-end was not honoring the English setting.
 
 = 2.0.1 =
 * Added an HTML5 video player, which opens in an page overlay.
