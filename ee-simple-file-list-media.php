@@ -8,7 +8,7 @@ Plugin Name: Simple File List Media
 Plugin URI: https://simplefilelist.com/add-media-player/
 Description: Adds audio and video media players to Simple File List
 Author: Mitchell Bennis
-Version: 2.0.1
+Version: 2.0.2
 Author URI: http://simplefilelist.com
 License: GPLv2 or later
 Text Domain: ee-simple-file-list-media
@@ -18,7 +18,7 @@ Domain Path: /languages
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // SFL Versions
-define('eeSFLM_Version', '2.0.1'); // Plugin version
+define('eeSFLM_Version', '2.0.2'); // Plugin version
 
 // Text Strings to Pass to JavaScript
 $eeSFLM_VarsForJS = array(); // Strings for JS
@@ -44,7 +44,6 @@ function eeSFLM_PassToJS() {
 function eeSFLM_Textdomain() {
     load_plugin_textdomain( 'ee-simple-file-list-media', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
-eeSFLM_Textdomain(); // Language Setup
 
 
 // Enqueue Our CSS and JS
